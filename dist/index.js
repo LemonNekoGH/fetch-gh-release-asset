@@ -13851,7 +13851,7 @@ var printOutput = (release) => {
 };
 var filterByFileName = (file) => (asset) => file === asset.name;
 var filterByRegex = (file) => (asset) => {
-  console.debug(`regex test success: ${new RegExp(file).test(asset.name)}`);
+  console.debug(`regex test success: ${new RegExp(file).test(asset.name)}, regexp: ${file}, file: ${asset.name}`);
   return new RegExp(file).test(asset.name);
 };
 var main = async () => {

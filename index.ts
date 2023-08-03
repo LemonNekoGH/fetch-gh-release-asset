@@ -124,7 +124,7 @@ const filterByFileName = (file: string) => (asset: Asset) =>
   file === asset.name;
 
 const filterByRegex = (file: string) => (asset: Asset) => {
-  console.debug(`regex test success: ${new RegExp(file).test(asset.name)}`)
+  console.debug(`regex test success: ${new RegExp(file).test(asset.name)}, regexp: ${file}, file: ${asset.name}`)
   return new RegExp(file).test(asset.name);
 }
 
