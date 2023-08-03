@@ -13869,10 +13869,16 @@ var main = async () => {
   const assets = release.data.assets.filter(assetFilterFn);
   if (assets.length === 0)
     throw new Error("Could not find asset id");
+  let outputPath = target;
+  if (usesRegex) {
+    if (!target.endsWith("/")) {
+      outputPath += "/";
+    }
+  }
   for (const asset of assets) {
     await fetchAssetFile(octokit, {
       id: asset.id,
-      outputPath: usesRegex ? `${target}${asset.name}` : target,
+      outputPath: usesRegex ? `${outputPath}${asset.name}` : target,
       owner,
       repo,
       token
