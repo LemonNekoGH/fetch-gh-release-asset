@@ -123,8 +123,10 @@ const printOutput = (release: GetReleaseResult): void => {
 const filterByFileName = (file: string) => (asset: Asset) =>
   file === asset.name;
 
-const filterByRegex = (file: string) => (asset: Asset) =>
-  new RegExp(file).test(asset.name);
+const filterByRegex = (file: string) => (asset: Asset) => {
+  console.debug(`regex test success: ${new RegExp(file).test(asset.name)}`)
+  return new RegExp(file).test(asset.name);
+}
 
 const main = async (): Promise<void> => {
   const { owner, repo } = getRepo(
