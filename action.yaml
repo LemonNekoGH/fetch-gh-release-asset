@@ -1,4 +1,4 @@
-name: 'Fetch Github Release Asset'
+name: 'Download Github Release Asset'
 description: 'Downloads an asset from a Github release'
 
 inputs:
