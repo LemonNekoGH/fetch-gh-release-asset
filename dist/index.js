@@ -13850,7 +13850,10 @@ var printOutput = (release) => {
   core.setOutput("body", release.data.body);
 };
 var filterByFileName = (file) => (asset) => file === asset.name;
-var filterByRegex = (file) => (asset) => new RegExp(file).test(asset.name);
+var filterByRegex = (file) => (asset) => {
+  console.debug(`regex test success: ${new RegExp(file).test(asset.name)}`);
+  return new RegExp(file).test(asset.name);
+};
 var main = async () => {
   const { owner, repo } = getRepo(core.getInput("repo", { required: false }), github.context);
   const token = core.getInput("token", { required: false });
