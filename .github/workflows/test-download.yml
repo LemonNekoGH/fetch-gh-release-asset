@@ -38,6 +38,7 @@ jobs:
           version: ${{ matrix.version }}
           file: 'plague-linux.zip'
           target: 'subdir/plague-linux.zip'
+      # TODO: test regex case
       - name: Display the outputs
         run: |
           echo "${{ steps.get_release.outputs.version }}"
